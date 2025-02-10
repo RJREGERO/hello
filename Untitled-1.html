@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9e1e1;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #e74c3c;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .button.yes {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+
+        .button.no {
+            background-color: #e74c3c;
+            color: #fff;
+            position: relative;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #2ecc71;
+            display: none;
+        }
+
+        .gif {
+            display: none;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .no.move {
+            animation: moveButton 0.5s ease-in-out;
+        }
+
+        @keyframes moveButton {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(10px); }
+            50% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Be My Valentine?</h1>
+        <div class="buttons">
+            <button class="button yes" onclick="showMessage()">Yes</button>
+            <button class="button no" onclick="moveButton()">No</button>
+        </div>
+        <div class="message" id="message">YEYY I LOVE YOU SO MUCH MAHAL!</div>
+        <img src="https://media.tenor.com/zCpmxNoEU7IAAAAi/milk-and-mocha.gif" alt="Milk and Mocha GIF" class="gif" id="gif">
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('gif').style.display = 'block';
+        }
+
+        function moveButton() {
+            const noButton = document.querySelector('.no');
+            const randomX = Math.random() * 200 - 100;
+            const randomY = Math.random() * 200 - 100;
+            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+    </script>
+</body>
+</html>
